@@ -17,7 +17,7 @@ jobs:
   # Stores metadata about the pull request so that `post-ci.yml` can leave a
   # useful comment on the pull request.
   save-pr:
-    if: github.event.pull_request.base.repo.owner.login == 'ethereum' || github.event.pull_request.base.repo.owner.login == 'eips-wg'
+    if: github.event.pull_request.base.repo.owner.login == 'ethereum'
     name: Save Pull Request Metadata
     runs-on: ubuntu-latest
 
@@ -40,7 +40,7 @@ jobs:
           path: pr/
 
   check:
-    if: github.event.pull_request.base.repo.owner.login == 'ethereum' || github.event.pull_request.base.repo.owner.login == 'eips-wg'
+    if: github.event.pull_request.base.repo.owner.login == 'ethereum'
     name: Check
     runs-on: ubuntu-latest
 
@@ -56,7 +56,7 @@ jobs:
           args: editorial check --against-upstream --format github
 
   markdownlint:
-    if: github.event.pull_request.base.repo.owner.login == 'ethereum' || github.event.pull_request.base.repo.owner.login == 'eips-wg'
+    if: github.event.pull_request.base.repo.owner.login == 'ethereum'
     name: Markdown Linter
     runs-on: ubuntu-latest
     steps:
@@ -75,7 +75,9 @@ jobs:
         if: steps.changed-files.outputs.stdout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # 4.2.2
         with:
-          repository: eips-wg/theme
+          repository: ritovision/eips-wg-theme
+          ref: d80a68a262a0ead56fc07a057cbf886c99ccf0dc
+          persist-credentials: false
           path: theme
 
       - name: Markdown Lint

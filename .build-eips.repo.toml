@@ -1,12 +1,14 @@
 repo_id = "template"
 
-# Template has no distinct production deployment target yet; production and
-# staging collapse to the canonical eips-wg template repo until a production
-# target is named. Update this section if that changes.
+# Legacy template manifest: current build-eips does not read this file, and the
+# template's Build.toml rollout is deferred. Template has no distinct production
+# deployment target yet; production and staging both collapse to the canonical
+# ritovision/eip-template repo. The base URL is its planned staging GitHub Pages
+# location (not yet deployed), not a live EIP/ERC site.
 [production]
-repository = "https://github.com/eips-wg/template.git"
-base_url = "https://eips-wg.github.io/template/"
+repository = "https://github.com/ritovision/eip-template.git"
+base_url = "https://ritovision.github.io/eip-template/"
 
 [staging]
-repository = "https://github.com/eips-wg/template.git"
-base_url = "https://eips-wg.github.io/template/"
+repository = "https://github.com/ritovision/eip-template.git"
+base_url = "https://ritovision.github.io/eip-template/"
